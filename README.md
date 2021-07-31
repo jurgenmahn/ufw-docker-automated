@@ -8,7 +8,7 @@ I prefered a bit simpler approach and more control over the access rules to the 
 
 I used PHP since im not a python developer.
 
-The base ufw rules are taken from chaifeng, thanks for that, saves me a lot of time figuring this out. and the idea to automate is is taken from shinebayar-g.
+The base ufw rules are taken from chaifeng, thanks for that, saves me a lot of time figuring this out. The idea to automate it, is taken from shinebayar-g.
 
 Installation manual:
 
