@@ -14,6 +14,7 @@ Installation manual:
 
 Add the following lines to the bottom your /etc/ufw/after.rules 
 
+```
 # BEGIN UFW AND DOCKER
 *filter
 :ufw-user-forward - [0:0]
@@ -41,7 +42,7 @@ Add the following lines to the bottom your /etc/ufw/after.rules
 
 COMMIT
 # END UFW AND DOCKER
-
+```
 
 Run the phar file, to make sure it keeps running add it to systemd, supervisor or cron. Some examples will be added later
 
