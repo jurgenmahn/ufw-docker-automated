@@ -1,0 +1,24 @@
+{
+    "Debug": false,
+    "CheckIntervalInSec": 10,
+    "DockerSocket": "/var/run/docker.sock",
+    "DockerApiUrl": "http://localhost/v1.41/",
+    "LogPath": "/var/log/ufw-docker.log",
+    "FirewallRules": [
+        {
+            "ContainerName": "plex-nginx",
+            "AllowFrom": "217.122.72.227",
+            "AllowedPorts": "80/TCP, 443/TCP"
+        },
+        {
+            "ContainerName": "plex-nginx",
+            "AllowFrom": "*",
+            "AllowedPorts": "80/tcp"
+        },
+        {
+            "ContainerName": "zzzzz",
+            "AllowFrom": "*",
+            "AllowedPorts": "80/TCP"
+        }
+    ]
+}
