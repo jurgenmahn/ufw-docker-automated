@@ -1,1 +1,0 @@
-alias php="docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v /data/server/ufw-docker-jm/:/exec  php php "

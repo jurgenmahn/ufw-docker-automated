@@ -8,7 +8,9 @@ namespace JurgenMahn\UfwDocker\Config {
         private static $instance = null;
 
         public function __construct() {
-            $this->settings = json_decode(file_get_contents(__DIR__ . "/local.json"), false);
+
+            $localPath = (\Phar::running(false) !== "" ? dirname(\Phar::running(false)) . '/Config' : __DIR__);
+            $this->settings = json_decode(file_get_contents($localPath . "/local.json"), false);
         }
 
         public static function getInstance(): self

@@ -51,4 +51,4 @@ nohup php ufw-docker.phar &
 
 Current status.
 
-Just starting
+First test version ready

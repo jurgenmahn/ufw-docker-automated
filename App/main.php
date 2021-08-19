@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-require(__DIR__ . '/App/Autoload/Autoload.php');
+require(__DIR__ . '/Autoload/Autoload.php');
 
 use \JurgenMahn\UfwDocker\Log\Logger;
 use \JurgenMahn\UfwDocker\Autoload;

@@ -130,7 +130,7 @@ namespace JurgenMahn\UfwDocker\Api {
 
             $ruleHash = md5($protocol . '-' . $source . '-' . $to . '-' . $port);
             $comment = 'UFWDA - ' . $ruleHash . ' - ' . $container;
-            $rule = ($delete ? 'delete ' : '') . "route allow proto $protocol from $source to $to port $port comment '$comment'";
+            $rule = ($delete ? 'delete ' : '') . "route allow proto $protocol " . ($source != "*" && !empty($source) ? "from " . $source : "") . " to $to port $port comment '$comment'";
 
             $result = new stdClass();
             $result->ruleCommand = $rule;
@@ -153,7 +153,7 @@ namespace JurgenMahn\UfwDocker\Api {
 
         private function Execute(string $command, bool $confirm = false): array {
 
-           exec(($confirm ? 'yes | ' : '') . $this->Test() . ' ' . $command, $result, $resultCode);
+           exec(($confirm ? 'yes 2>/dev/null  | ' : '') . $this->Test() . ' ' . $command, $result, $resultCode);
 
            return $result;
         }
