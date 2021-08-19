@@ -1,0 +1,13 @@
+[Unit]
+Description=UFW-Docker-Automated
+After=network.target
+StartLimitIntervalSec=0
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=root
+ExecStart=/usr/bin/php /opt/ufw-docker-automated/ufw-docker-automated.phar
+
+[Install]
+WantedBy=multi-user.target

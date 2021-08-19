@@ -1,6 +1,6 @@
 {
     "Debug": false,
-    "CheckIntervalInSec": 10,
+    "CheckIntervalInSec": 60,
     "DockerSocket": "/var/run/docker.sock",
     "DockerApiUrl": "http://localhost/v1.41/",
     "LogPath": "/var/log/ufw-docker.log",
