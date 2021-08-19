@@ -48,7 +48,7 @@ namespace JurgenMahn\UfwDocker\Api {
             $generatedHashes = [];
 
             if (!$isRunning) {
-                Logger::Log('Container is not running or doesnt exist: ' . $rule->ContainerName . "\n");
+                Logger::Log('Container is not running or doesnt exist: ' . $rule->ContainerName);
                 return [];
             }
 
@@ -70,7 +70,7 @@ namespace JurgenMahn\UfwDocker\Api {
                         foreach ($types as $type) {
 
                             if (!array_key_exists($port, $containerPorts) || $containerPorts[$port] != $type) {
-                                Logger::Log('Container ' . $rule->ContainerName . ' doesnt have this port publicly exposed: ' . $port . '/' . $type . "\n");
+                                Logger::Log('Container ' . $rule->ContainerName . ' doesnt have this port publicly exposed: ' . $port . '/' . $type);
                                 continue;
                             }
 

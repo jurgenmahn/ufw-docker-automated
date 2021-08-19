@@ -31,13 +31,13 @@ namespace JurgenMahn\UfwDocker\Api {
             foreach($this->getContainers() as $container) {
                 foreach ($container->Names as $name) {
                     if (trim($name, '/') == $search) {
-                        Logger::Log("Container found: " . $search . "\n");
+                        Logger::Log("Container found: " . $search);
                         return $container;
                     }
                 }
             }
 
-            Logger::Log("Warning, container doesnt exist: " . $search . "\n");
+            Logger::Log("Warning, container doesnt exist: " . $search);
             return null;
         }
 
@@ -116,7 +116,7 @@ namespace JurgenMahn\UfwDocker\Api {
             $socket = Main::$settings->DockerSocket;
             $timeout = 3000;
 
-            Logger::Log("Calling docker API over socket " . $socket . " with url " . $url . "\n");
+            Logger::Log("Calling docker API over socket " . $socket . " with url " . $url);
 
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL, $url);

@@ -28,8 +28,8 @@ class Main
         $this->ufwApi = new Ufw();
 
         Logger::Log('Checking requirements');
-        Logger::Log('ufw installed and: ' . $this->ufwApi->Test() . "\n");
-        Logger::Log('docker installed: ' . $this->dockerApi->Test() . "\n");
+        Logger::Log('ufw installed and: ' . $this->ufwApi->Test());
+        Logger::Log('docker installed: ' . $this->dockerApi->Test());
 
         if ($this->ufwApi->Test() == "No" || $this->dockerApi->Test() == "No") {
             throw new \Exception('Requirements not met');
@@ -38,20 +38,19 @@ class Main
         while (true) {
             $this->UpdateRules();
 
-            if (self::$debug) {
-                exit;
-            }
+            // if (self::$debug) {
+            //     exit;
+            // }
 
             // Give the system his deserved rest
-            if (!Main::$debug) {
-                sleep(self::$settings->CheckIntervalInSec);
-            }            
+            Logger::Log('Sleeping for ' . self::$settings->CheckIntervalInSec . ' seconds');
+            sleep(self::$settings->CheckIntervalInSec);         
         }
     }
 
     private function UpdateRules(): void {
 
-
+        Logger::Log('Start updating firewall rules');
         $rules = Main::$settings->FirewallRules;
 
         $createdRules = [];

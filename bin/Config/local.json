@@ -1,5 +1,5 @@
 {
-    "Debug": true,
+    "Debug": false,
     "CheckIntervalInSec": 10,
     "DockerSocket": "/var/run/docker.sock",
     "DockerApiUrl": "http://localhost/v1.41/",
