@@ -60,6 +60,9 @@ class Main
                 Logger::Log('Failed creating rule ' . json_encode($rule));
             }
         }   
+
+        Logger::Log('New ruleset hashes after this run');
+        Logger::Log(implode("\n", $createdRules));
         
         $this->ufwApi->cleanupOldRules($createdRules);
 

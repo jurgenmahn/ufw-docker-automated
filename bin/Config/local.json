@@ -7,18 +7,8 @@
     "FirewallRules": [
         {
             "ContainerName": "plex-nginx",
-            "AllowFrom": "217.122.72.227",
-            "AllowedPorts": "80/TCP, 443/TCP"
-        },
-        {
-            "ContainerName": "plex-nginx",
             "AllowFrom": "*",
-            "AllowedPorts": "80/tcp"
-        },
-        {
-            "ContainerName": "zzzzz",
-            "AllowFrom": "*",
-            "AllowedPorts": "80/TCP"
+            "AllowedPorts": "80/tcp,443/tcp"
         }
     ]
 }

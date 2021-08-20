@@ -63,8 +63,8 @@ namespace JurgenMahn\UfwDocker\Api {
                             $port = trim($tmp[0]);
                             $types[] = trim(strtolower($tmp[1]));
                         } else {
-                            $types = "tcp";
-                            $types = "udp";
+                            $types[] = "tcp";
+                            $types[] = "udp";
                         }
 
                         foreach ($types as $type) {
@@ -84,14 +84,10 @@ namespace JurgenMahn\UfwDocker\Api {
                                 Logger::Log('With result: ' . current($result));
                                 $generatedHashes[] = $hash;                                
                             } else {
-                                if (Main::$debug) {
-                                    Logger::Log('Rule already exist, ignoring it');
-                                    $generatedHashes[] = $hash; 
-                                }
+                                Logger::Log('Rule already exist, ignoring it');
+                                $generatedHashes[] = $hash; 
                             }
-
                         }
-  
                     }
                 }
             }
