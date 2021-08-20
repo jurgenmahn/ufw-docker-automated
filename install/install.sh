@@ -2,8 +2,7 @@
 
 #!/bin/bash
 DIRECTORY=`dirname $0`
-echo $DIRECTORY
-exit
+cd $DIRECTORY
 
 cp ./ufw-docker-automated.service /etc/systemd/system/
 mkdir -p /opt/ufw-docker-automated/Config
