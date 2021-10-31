@@ -106,10 +106,17 @@ namespace JurgenMahn\UfwDocker\Api {
                 if (strstr($rule, 'UFWDA') !== false) {
                     // find hash
                     preg_match("/\\[\s?([0-9]){1,4}\\].+- ([a-zA-Z0-9]{32}) -/", $rule, $matches);
-                    $currentRules[$matches[1]] = $matches[2];
+                    //$currentRules[$matches[1]] = $matches[2];
+
+                    if (!in_array($matches[2], $newRules)) {
+                        $result = $this->Execute('delete ' . $matches[1], true);
+                        Logger::Log('Unused rule deleted: ' . $rule);
+                        $this->cleanupOldRules($newRules);
+                    }                    
                 }
             }
 
+            /*
             ksort($currentRules, SORT_NUMERIC);
             $descCurrentRules = array_reverse($currentRules, true);
 
@@ -119,6 +126,7 @@ namespace JurgenMahn\UfwDocker\Api {
                     Logger::Log('Unused rule deleted: ' . $rule);
                 }
             }
+            */
 
         }
 
